@@ -1,10 +1,48 @@
+import { useContext } from "react";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Register = () => {
+  const { createUser, userProfileUpdate } = useContext(AuthContext);
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+
+    if (password.length < 6) {
+      toast.error("Password must be at least 6 characters");
+      return;
+    } else if (!/.*[A-Z].*/.test(password)) {
+      toast.error("Password must have a capital letter");
+      return;
+    } else if (!/[!@#$%^&*()_+{}[\]:;<>,.?~\\\-/]/.test(password)) {
+      toast.error("Password must have a special character");
+      return;
+    }
+
+    createUser(email, password)
+      .then(() => {
+        userProfileUpdate(name, photo);
+        toast.success("Successfully Registered");
+        form.reset();
+      })
+      .catch((error) => {
+        toast.error(error.message);
+        form.reset();
+      });
+  };
+
   return (
     <div>
       <div className="min-h-screen max-w-2xl mx-auto mt-10">
         <div className="flex-col">
           <div className="w-full rounded-2xl shadow-2xl bg-base-100">
-            <form className="card-body">
+            <form className="card-body" onSubmit={handleRegister}>
               <div className="form-control">
                 <label className="label">
                   <span className="text-lg">Full Name</span>
@@ -55,7 +93,9 @@ const Register = () => {
                 />
               </div>
               <div className="form-control mt-6">
-                <button className="btn bg-teal-500 hover:bg-teal-400">
+                <button
+                  type="submit"
+                  className="btn bg-teal-500 hover:bg-teal-400">
                   Register
                 </button>
               </div>

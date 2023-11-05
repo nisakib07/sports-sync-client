@@ -1,6 +1,10 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
+// import { toast } from "react-toastify";
 
 const Navbar = () => {
+  const { user, userLogout } = useContext(AuthContext);
   const navLinks = (
     <>
       <li>
@@ -9,11 +13,18 @@ const Navbar = () => {
       <li>
         <NavLink to="/services">Services</NavLink>
       </li>
-      <li>
-        <Link>Dashboard</Link>
-      </li>
+
+      {user && (
+        <li>
+          <Link>Dashboard</Link>
+        </li>
+      )}
     </>
   );
+
+  const handleLogOut = () => {
+    userLogout();
+  };
 
   return (
     <div className="navbar">
@@ -46,9 +57,13 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        <Link to="/login">
-          <button className="btn">Login</button>
-        </Link>
+        {user ? (
+          <button onClick={handleLogOut}>LogOut</button>
+        ) : (
+          <Link to="/login">
+            <button className="btn">Login</button>
+          </Link>
+        )}
       </div>
     </div>
   );

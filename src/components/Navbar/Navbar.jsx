@@ -57,13 +57,46 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        {user ? (
+        {/* {user ? (
           <button onClick={handleLogOut}>LogOut</button>
         ) : (
           <Link to="/login">
             <button className="btn">Login</button>
           </Link>
-        )}
+        )} */}
+
+        <div className="flex-none">
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                <div className="w-10 rounded-full">
+                  <img
+                    src={
+                      user?.photoURL
+                        ? user.photoURL
+                        : "https://i.ibb.co/DCghjvD/profile.jpg"
+                    }
+                  />
+                </div>
+              </label>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                <li>
+                  <p>{user.displayName}</p>
+                </li>
+
+                <li>
+                  <a onClick={handleLogOut}>Logout</a>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <Link to="/login">
+              <button className="btn">Login</button>
+            </Link>
+          )}
+        </div>
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { toast } from "react-toastify";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const { userSignIn, googleSignIn } = useContext(AuthContext);
@@ -13,6 +14,16 @@ const Login = () => {
     const password = form.password.value;
 
     userSignIn(email, password)
+      .then(() => {
+        toast.success("Logged In Successfully");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
+
+  const handleGoogleLogin = () => {
+    googleSignIn()
       .then(() => {
         toast.success("Logged In Successfully");
       })
@@ -57,6 +68,15 @@ const Login = () => {
                   className="btn bg-teal-500 hover:bg-teal-400">
                   Login
                 </button>
+
+                <div className="mt-5 text-lg">
+                  <p className="text-center">Or Sign In With</p>
+                  <div className="flex justify-center">
+                    <button onClick={handleGoogleLogin}>
+                      <FcGoogle className="text-2xl mt-4"></FcGoogle>
+                    </button>
+                  </div>
+                </div>
               </div>
               <p className="text-center mt-5 text-lg">
                 New Here?

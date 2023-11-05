@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const { createUser, userProfileUpdate } = useContext(AuthContext);
@@ -99,6 +100,13 @@ const Register = () => {
                   Register
                 </button>
               </div>
+
+              <p className="text-center mt-5 text-lg">
+                Already have an account?
+                <span className="text-orange-600">
+                  <Link to="/login"> Login</Link>
+                </span>
+              </p>
             </form>
           </div>
         </div>

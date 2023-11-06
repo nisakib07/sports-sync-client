@@ -1,8 +1,13 @@
 import { useQuery } from "@tanstack/react-query";
+import { useContext } from "react";
+import { BsArrowRight } from "react-icons/bs";
 import { useParams } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 
 const ServiceDetails = () => {
   const { id } = useParams();
+  const { user } = useContext(AuthContext);
+  console.log(user?.email);
   const { data, isLoading } = useQuery({
     queryKey: ["singleService"],
     queryFn: () =>
@@ -11,15 +16,21 @@ const ServiceDetails = () => {
 
   if (isLoading) return <p>Loading</p>;
   const {
-    _id,
     serviceImage,
     serviceName,
     serviceDescription,
     serviceProviderImage,
     serviceProviderName,
+    serviceProviderEmail,
     servicePrice,
     serviceArea,
   } = data;
+
+  const handleAddToBooking = (e) => {
+    e.preventDefault();
+    // console.log(id);
+    console.log(id);
+  };
 
   return (
     <div>
@@ -39,6 +50,153 @@ const ServiceDetails = () => {
                 {serviceArea}
               </p>
             </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="mt-14">
+        <h2 className="text-center text-3xl font-bold mb-10">
+          Service Details
+        </h2>
+        <div>
+          <div className="card bg-cyan-600 shadow-xl">
+            <figure>
+              <img className="w-full h-[600px]" src={serviceImage} />
+            </figure>
+            <div className="p-5">
+              <h2 className="text-2xl mb-3">{serviceName}</h2>
+              <p>{serviceDescription}</p>
+            </div>
+            <div className="flex justify-between items-center p-5">
+              <div className="flex items-center gap-5">
+                <img
+                  className="rounded-full w-[45px] h-[45px]"
+                  src={serviceProviderImage}
+                  alt=""
+                />
+                <p className="text-lg">{serviceProviderName}</p>
+              </div>
+              <p>
+                <span className="text-lg font-semibold">Price :</span> $
+                {servicePrice}
+              </p>
+            </div>
+            <div className="px-5">
+              <p>
+                <span className="text-lg font-semibold">Service Area : </span>
+                {serviceArea}
+              </p>
+            </div>
+
+            <div className="flex p-5 justify-end">
+              <button
+                onClick={() =>
+                  document.getElementById("my_modal_5").showModal()
+                }
+                className="flex items-center gap-2 bg-cyan-400 p-2 rounded-lg">
+                Book Now
+                <span>
+                  <BsArrowRight></BsArrowRight>
+                </span>
+              </button>
+            </div>
+            <dialog
+              id="my_modal_5"
+              className="modal modal-bottom sm:modal-middle">
+              <div className="modal-box bg-cyan-600">
+                <form onSubmit={handleAddToBooking}>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="text-lg">Service Name</span>
+                    </label>
+                    <input
+                      type="text"
+                      defaultValue={serviceName}
+                      className="input input-bordered bg-cyan-200"
+                      readOnly
+                    />
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="text-lg">Service Image</span>
+                    </label>
+                    <input
+                      type="text"
+                      defaultValue={serviceImage}
+                      className="input input-bordered bg-cyan-200"
+                      readOnly
+                    />
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="text-lg">Service Provider Email</span>
+                    </label>
+                    <input
+                      type="text"
+                      defaultValue={serviceProviderEmail}
+                      className="input input-bordered bg-cyan-200"
+                      readOnly
+                    />
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="text-lg">User Email</span>
+                    </label>
+                    <input
+                      type="text"
+                      defaultValue={user?.email}
+                      className="input input-bordered bg-cyan-200"
+                      readOnly
+                    />
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="text-lg">Service Taking Date</span>
+                    </label>
+                    <input
+                      type="date"
+                      className="input input-bordered bg-cyan-200"
+                      name="date"
+                      required
+                    />
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="text-lg">Special Instruction</span>
+                    </label>
+                    <input
+                      type="text"
+                      className="input input-bordered bg-cyan-200"
+                      placeholder="Your address / Customization in the plan"
+                      name="instruction"
+                      required
+                    />
+                  </div>
+                  <div className="form-control">
+                    <label className="label">
+                      <span className="text-lg">Price</span>
+                    </label>
+                    <input
+                      type="text"
+                      defaultValue={servicePrice}
+                      className="input input-bordered bg-cyan-200"
+                      readOnly
+                    />
+                  </div>
+                  <button
+                    className="btn mt-6 bg-cyan-400 border-0"
+                    type="submit">
+                    Purchase
+                  </button>
+                </form>
+                <div className="modal-action">
+                  <form method="dialog">
+                    {/* if there is a button in form, it will close the modal */}
+                    <button className="btn bg-red-400 border-0">Close</button>
+                  </form>
+                </div>
+              </div>
+            </dialog>
           </div>
         </div>
       </div>

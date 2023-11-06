@@ -3,11 +3,13 @@ import { useContext } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 const ServiceDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
-  console.log(user?.email);
+  //   console.log(user?.email);
   const { data, isLoading } = useQuery({
     queryKey: ["singleService"],
     queryFn: () =>
@@ -29,7 +31,23 @@ const ServiceDetails = () => {
   const handleAddToBooking = (e) => {
     e.preventDefault();
     // console.log(id);
-    console.log(id);
+    // console.log(id);
+
+    const booking = {
+      serviceImage: serviceImage,
+      serviceName: serviceName,
+      serviceProviderEmail: serviceProviderEmail,
+      userEmail: user?.email,
+      bookingDate: e.target.date.value,
+      instruction: e.target.instruction.value,
+      price: servicePrice,
+    };
+
+    axios.post("http://localhost:5000/bookings", booking).then((res) => {
+      if (res.data.insertedId) {
+        toast.success("Booking Added Successfully");
+      }
+    });
   };
 
   return (

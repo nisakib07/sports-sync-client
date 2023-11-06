@@ -13,10 +13,24 @@ const Navbar = () => {
       <li>
         <NavLink to="/services">Services</NavLink>
       </li>
-
       {user && (
-        <li>
-          <Link>Dashboard</Link>
+        <li tabIndex={0}>
+          <details>
+            <summary>Dashboard</summary>
+            <ul>
+              <li>
+                <NavLink to="/myServices">My Services</NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/addServices">Add Services</NavLink>
+              </li>
+
+              <li>
+                <NavLink to="/mySchedules">My Schedules</NavLink>
+              </li>
+            </ul>
+          </details>
         </li>
       )}
     </>
@@ -57,14 +71,6 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
       </div>
       <div className="navbar-end">
-        {/* {user ? (
-          <button onClick={handleLogOut}>LogOut</button>
-        ) : (
-          <Link to="/login">
-            <button className="btn">Login</button>
-          </Link>
-        )} */}
-
         <div className="flex-none">
           {user ? (
             <div className="dropdown dropdown-end">

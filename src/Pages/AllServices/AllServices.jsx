@@ -1,16 +1,29 @@
+import { useEffect, useState } from "react";
 import AllServicesCard from "../../components/AllServicesCard/AllServicesCard";
 
 import useServices from "../../hooks/useServices";
 
 const AllServices = () => {
   const { data, isLoading } = useServices();
-  //   const [searchedData, setSearchedData] = useState(data);
+  const [searchedData, setSearchedData] = useState([]);
+
+  useEffect(() => {
+    setSearchedData(data);
+  }, [data, isLoading]);
 
   if (isLoading) return <p>Loading</p>;
 
   const handleSearch = (e) => {
     e.preventDefault();
+    const searchedName = e.target.searchedService.value;
+
+    const matched = data.filter((service) =>
+      service.serviceName.toLowerCase().includes(searchedName.toLowerCase())
+    );
+
+    setSearchedData(matched);
   };
+  console.log(data, searchedData);
 
   return (
     <div>

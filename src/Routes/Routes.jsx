@@ -5,6 +5,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import MyServices from "../Pages/MyServices/MyServices";
 import AllServices from "../Pages/AllServices/AllServices";
+import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 
 const Routes = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const Routes = createBrowserRouter([
       {
         path: "/allServices",
         element: <AllServices></AllServices>,
+      },
+      {
+        path: "/serviceDetails/:id",
+        element: <ServiceDetails></ServiceDetails>,
       },
     ],
   },

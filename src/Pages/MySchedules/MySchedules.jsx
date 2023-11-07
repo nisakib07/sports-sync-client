@@ -1,8 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 import MyBookingsRow from "../../components/MyBookingsRow/MyBookingsRow";
+import MyPendingWorks from "../../components/MyPendingWorks/MyPendingWorks";
 
 const MySchedules = () => {
   const { user } = useContext(AuthContext);
@@ -16,7 +17,12 @@ const MySchedules = () => {
     },
   });
 
-  if (isLoading) <p>Loading</p>;
+  if (isLoading)
+    return (
+      <div className="text-center">
+        <span className="loading loading-infinity loading-lg"></span>
+      </div>
+    );
 
   return (
     <div>
@@ -57,6 +63,7 @@ const MySchedules = () => {
             My Pending Works
           </h2>
         </div>
+        <MyPendingWorks></MyPendingWorks>
       </div>
     </div>
   );

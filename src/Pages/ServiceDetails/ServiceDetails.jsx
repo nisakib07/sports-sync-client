@@ -28,6 +28,8 @@ const ServiceDetails = () => {
     serviceArea,
   } = data;
 
+  //   console.log(serviceProviderEmail);
+
   const handleAddToBooking = (e) => {
     e.preventDefault();
     // console.log(id);

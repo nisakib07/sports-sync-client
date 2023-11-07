@@ -5,11 +5,14 @@ import useServices from "../../hooks/useServices";
 
 const AllServices = () => {
   const { data, isLoading } = useServices();
+
   const [searchedData, setSearchedData] = useState([]);
 
   useEffect(() => {
     setSearchedData(data);
-  }, [data, isLoading]);
+  }, [data]);
+
+  if (isLoading) return <p>Loading</p>;
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -45,11 +48,12 @@ const AllServices = () => {
         </form>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {data.map((singleData) => (
-          <AllServicesCard
-            key={singleData._id}
-            singleData={singleData}></AllServicesCard>
-        ))}
+        {searchedData &&
+          searchedData.map((singleData) => (
+            <AllServicesCard
+              key={singleData._id}
+              singleData={singleData}></AllServicesCard>
+          ))}
       </div>
     </div>
   );

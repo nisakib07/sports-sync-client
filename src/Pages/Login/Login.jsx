@@ -1,11 +1,13 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const { userSignIn, googleSignIn } = useContext(AuthContext);
+
+  const navigate = useNavigate();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -15,6 +17,7 @@ const Login = () => {
 
     userSignIn(email, password)
       .then(() => {
+        navigate("/");
         toast.success("Logged In Successfully");
       })
       .catch((error) => {
@@ -25,6 +28,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     googleSignIn()
       .then(() => {
+        navigate("/");
         toast.success("Logged In Successfully");
       })
       .catch((error) => {

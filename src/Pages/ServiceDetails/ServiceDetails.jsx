@@ -1,21 +1,39 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { BsArrowRight } from "react-icons/bs";
 import { useParams } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Dna } from "react-loader-spinner";
+import useOtherServices from "../../hooks/useOtherServices";
 
 const ServiceDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
-  //   console.log(user?.email);
+
+  const [allServices, setAllServices] = useState([]);
+  const [otherServices, setOtherServices] = useState([]);
   const { data, isLoading } = useQuery({
     queryKey: ["singleService"],
     queryFn: () =>
       fetch(`http://localhost:5000/services/${id}`).then((res) => res.json()),
   });
+
+  useEffect(() => {
+    fetch(
+      `http://localhost:5000/userService?email=${data?.serviceProviderEmail}`
+    )
+      .then((res) => res.json())
+      .then((data) => setAllServices(data));
+  }, [data?.serviceProviderEmail]);
+
+  useEffect(() => {
+    const matched = allServices.filter(
+      (singleService) => singleService._id !== id
+    );
+    setOtherServices(matched);
+  }, [allServices, id]);
 
   if (isLoading)
     return (
@@ -30,6 +48,9 @@ const ServiceDetails = () => {
         />
       </div>
     );
+
+  //   console.log(otherService);
+
   const {
     serviceImage,
     serviceName,
@@ -41,12 +62,8 @@ const ServiceDetails = () => {
     serviceArea,
   } = data;
 
-  //   console.log(serviceProviderEmail);
-
   const handleAddToBooking = (e) => {
     e.preventDefault();
-    // console.log(id);
-    // console.log(id);
 
     const booking = {
       serviceImage: serviceImage,
@@ -232,6 +249,21 @@ const ServiceDetails = () => {
               </div>
             </dialog>
           </div>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          {otherServices.length === 0 ? (
+            ""
+          ) : (
+            <>
+              <h2 className="text-center text-2xl font-bold my-10">
+                More from this provider
+              </h2>
+              <p>{otherServices.length} more services</p>
+            </>
+          )}
         </div>
       </div>
     </div>

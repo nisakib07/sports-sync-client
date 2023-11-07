@@ -60,7 +60,7 @@ const ServiceDetails = () => {
         <div className="card lg:card-side bg-cyan-600 shadow-xl">
           <div className="flex rounded-xl">
             <figure>
-              <img src={serviceProviderImage} />
+              <img className="h-full w-[250px]" src={serviceProviderImage} />
             </figure>
             <div className="card-body">
               <h2 className="card-title">{serviceProviderName}</h2>

@@ -31,7 +31,7 @@ const AllServices = () => {
       <h2 className="text-center text-2xl font-bold my-6">
         All of our Services
       </h2>
-      <div className="flex justify-center mb-6">
+      <div className="flex justify-center mb-16">
         <form onSubmit={handleSearch}>
           <div className="flex">
             <input

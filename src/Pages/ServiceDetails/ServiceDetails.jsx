@@ -41,6 +41,7 @@ const ServiceDetails = () => {
       bookingDate: e.target.date.value,
       instruction: e.target.instruction.value,
       price: servicePrice,
+      status: "Pending",
     };
 
     axios.post("http://localhost:5000/bookings", booking).then((res) => {

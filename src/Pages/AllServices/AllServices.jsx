@@ -11,8 +11,6 @@ const AllServices = () => {
     setSearchedData(data);
   }, [data, isLoading]);
 
-  if (isLoading) return <p>Loading</p>;
-
   const handleSearch = (e) => {
     e.preventDefault();
     const searchedName = e.target.searchedService.value;

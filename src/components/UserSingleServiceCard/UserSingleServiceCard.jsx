@@ -71,12 +71,14 @@ const UserSingleServiceCard = ({ singleData, refetch }) => {
         </div>
 
         <div className="flex p-5 justify-center gap-6">
-          <button className="flex items-center gap-2 bg-cyan-400 p-2 rounded-lg">
-            Update
-            <span>
-              <GrUpdate></GrUpdate>
-            </span>
-          </button>
+          <Link to={`/updateUserService/${_id}`}>
+            <button className="flex items-center gap-2 bg-cyan-400 p-2 rounded-lg">
+              Update
+              <span>
+                <GrUpdate></GrUpdate>
+              </span>
+            </button>
+          </Link>
           <button
             onClick={() => handleDelete(_id)}
             className="flex items-center gap-2 bg-red-400 p-2 rounded-lg">
@@ -93,6 +95,7 @@ const UserSingleServiceCard = ({ singleData, refetch }) => {
 
 UserSingleServiceCard.propTypes = {
   singleData: PropTypes.object,
+  refetch: PropTypes.func,
 };
 
 export default UserSingleServiceCard;

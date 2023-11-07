@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Dna } from "react-loader-spinner";
 
 const UpdateUserService = () => {
   const { user } = useContext(AuthContext);
@@ -19,8 +20,15 @@ const UpdateUserService = () => {
 
   if (isLoading)
     return (
-      <div className="text-center">
-        <span className="loading loading-infinity loading-lg"></span>
+      <div className="flex justify-center">
+        <Dna
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
       </div>
     );
   const {

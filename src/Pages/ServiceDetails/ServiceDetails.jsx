@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Dna } from "react-loader-spinner";
 
 const ServiceDetails = () => {
   const { id } = useParams();
@@ -16,7 +17,19 @@ const ServiceDetails = () => {
       fetch(`http://localhost:5000/services/${id}`).then((res) => res.json()),
   });
 
-  if (isLoading) return <p>Loading</p>;
+  if (isLoading)
+    return (
+      <div className="flex justify-center">
+        <Dna
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+      </div>
+    );
   const {
     serviceImage,
     serviceName,
@@ -56,7 +69,7 @@ const ServiceDetails = () => {
   return (
     <div>
       <div>
-        <h2 className="text-center text-2xl font-bold my-6">
+        <h2 className="text-center text-2xl font-bold mb-6 mt-32">
           Service Provider
         </h2>
         <div className="card lg:card-side bg-cyan-600 shadow-xl">

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AllServicesCard from "../../components/AllServicesCard/AllServicesCard";
 
 import useServices from "../../hooks/useServices";
+import { Dna } from "react-loader-spinner";
 
 const AllServices = () => {
   const { data, isLoading } = useServices();
@@ -12,7 +13,19 @@ const AllServices = () => {
     setSearchedData(data);
   }, [data]);
 
-  if (isLoading) return <p>Loading</p>;
+  if (isLoading)
+    return (
+      <div className="flex justify-center">
+        <Dna
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+      </div>
+    );
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -28,7 +41,7 @@ const AllServices = () => {
 
   return (
     <div>
-      <h2 className="text-center text-2xl font-bold my-6">
+      <h2 className="text-center text-2xl font-bold mt-32 mb-6">
         All of our Services
       </h2>
       <div className="flex justify-center mb-16">

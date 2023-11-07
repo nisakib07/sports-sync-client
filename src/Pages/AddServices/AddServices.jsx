@@ -47,7 +47,9 @@ const AddServices = () => {
 
   return (
     <div>
-      <h2 className="text-center text-2xl font-bold my-6">Add Services</h2>
+      <h2 className="text-center text-2xl font-bold mt-32 mb-6">
+        Add Services
+      </h2>
       <div className="p-5 bg-cyan-600 rounded-lg mx-5">
         <form onSubmit={handleAddService}>
           {/* Service name and Image */}

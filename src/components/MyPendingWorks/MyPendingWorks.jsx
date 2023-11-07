@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import MyPendingWorksRow from "../MyPendingWorksRow/MyPendingWorksRow";
+import { Dna } from "react-loader-spinner";
 
 const MyPendingWorks = () => {
   const { user } = useContext(AuthContext);
@@ -22,8 +23,15 @@ const MyPendingWorks = () => {
   console.log(myPending);
   if (isLoading)
     return (
-      <div className="text-center">
-        <span className="loading loading-infinity loading-lg"></span>
+      <div className="flex justify-center">
+        <Dna
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
       </div>
     );
   return (

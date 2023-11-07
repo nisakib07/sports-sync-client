@@ -1,11 +1,24 @@
 import ServiceCard from "../ServiceCard/ServiceCard";
 import { Link } from "react-router-dom";
 import useServices from "../../hooks/useServices";
+import { Dna } from "react-loader-spinner";
 
 const Services = () => {
   const { data, isLoading } = useServices();
 
-  if (isLoading) return <p>Loading</p>;
+  if (isLoading)
+    return (
+      <div className="flex justify-center">
+        <Dna
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
+      </div>
+    );
   return (
     <div>
       <h2 className="text-center text-2xl font-bold mt-40 mb-6">

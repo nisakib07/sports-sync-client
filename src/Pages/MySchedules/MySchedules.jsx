@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 import MyBookingsRow from "../../components/MyBookingsRow/MyBookingsRow";
 import MyPendingWorks from "../../components/MyPendingWorks/MyPendingWorks";
+import { Dna } from "react-loader-spinner";
 
 const MySchedules = () => {
   const { user } = useContext(AuthContext);
@@ -19,8 +20,15 @@ const MySchedules = () => {
 
   if (isLoading)
     return (
-      <div className="text-center">
-        <span className="loading loading-infinity loading-lg"></span>
+      <div className="flex justify-center">
+        <Dna
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="dna-loading"
+          wrapperStyle={{}}
+          wrapperClass="dna-wrapper"
+        />
       </div>
     );
 

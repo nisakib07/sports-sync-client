@@ -48,7 +48,7 @@ const MyPendingWorksRow = ({ singlePending, refetch }) => {
         <select
           onChange={handleChangeStatus}
           value={newStatus}
-          className="bg-cyan-600"
+          className="bg-cyan-600 p-2 rounded-lg"
           name=""
           id="">
           <option value="Pending">Pending</option>

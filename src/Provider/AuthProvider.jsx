@@ -61,7 +61,7 @@ const AuthProvider = ({ children }) => {
           .post("https://assignmentb8-11-server.vercel.app/jwt", loggedInUser, {
             withCredentials: true,
           })
-          .then((res) => console.log("token response", res.data));
+          .then();
       } else {
         axios
           .post(
@@ -71,7 +71,7 @@ const AuthProvider = ({ children }) => {
               withCredentials: true,
             }
           )
-          .then((res) => console.log(res.data));
+          .then();
       }
     });
 

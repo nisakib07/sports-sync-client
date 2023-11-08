@@ -11,7 +11,6 @@ const UpdateUserService = () => {
   const { user } = useContext(AuthContext);
   const { displayName, email, photoURL } = user;
   const { id } = useParams();
-  console.log(id);
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["updateProduct"],

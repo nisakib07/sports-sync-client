@@ -28,8 +28,6 @@ const Features = () => {
       </div>
     );
 
-  console.log(data);
-
   return (
     <div>
       <h2 className="text-center text-2xl font-bold my-12">Our Features</h2>

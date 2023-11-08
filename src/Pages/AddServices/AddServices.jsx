@@ -38,14 +38,6 @@ const AddServices = () => {
           toast.success("Service Added Successfully");
         }
       });
-
-    console.log(
-      serviceImage,
-      serviceName,
-      serviceDescription,
-      servicePrice,
-      serviceArea
-    );
   };
 
   return (

@@ -4,7 +4,7 @@ const FeatureCard = ({ singleData }) => {
   const { image, featureName, smallDescription } = singleData;
   return (
     <div>
-      <div className="card card-compact bg-cyan-500 shadow-xl">
+      <div className="card card-compact bg-cyan-400 shadow-xl">
         <figure className="p-4">
           <img className="max-w-[200px]" src={image} alt="Shoes" />
         </figure>

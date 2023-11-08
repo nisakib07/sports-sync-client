@@ -3,7 +3,7 @@ const FaqSection = () => {
     <div>
       <h2 className="text-center text-2xl font-bold my-12">FAQ Section</h2>
 
-      <div className="join join-vertical w-full bg-cyan-500">
+      <div className="join join-vertical w-full bg-cyan-400">
         <div className="collapse collapse-arrow join-item border border-base-300">
           <input type="radio" name="my-accordion-4" checked="checked" />
           <div className="collapse-title text-xl font-medium">

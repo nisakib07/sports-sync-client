@@ -3,6 +3,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { useQuery } from "@tanstack/react-query";
 import UserSingleServiceCard from "../../components/UserSingleServiceCard/UserSingleServiceCard";
 import { Dna } from "react-loader-spinner";
+import { Helmet } from "react-helmet-async";
 
 const MyServices = () => {
   const { user } = useContext(AuthContext);
@@ -30,6 +31,9 @@ const MyServices = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>SportsSync | My Services</title>
+      </Helmet>
       <h2 className="text-center text-2xl font-bold mt-32 mb-6">
         My Services : {data.length}
       </h2>

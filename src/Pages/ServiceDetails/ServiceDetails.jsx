@@ -7,6 +7,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import { Dna } from "react-loader-spinner";
 import OtherServicesCard from "../../components/OtherServicesCard/OtherServicesCard";
+import { Helmet } from "react-helmet-async";
 
 const ServiceDetails = () => {
   const { id } = useParams();
@@ -55,8 +56,6 @@ const ServiceDetails = () => {
       </div>
     );
 
-  //   console.log(otherService);
-
   const {
     serviceImage,
     serviceName,
@@ -95,6 +94,9 @@ const ServiceDetails = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>SportsSync | Service Details</title>
+      </Helmet>
       <div>
         <h2 className="text-center text-2xl font-bold mb-6 mt-32">
           Service Provider

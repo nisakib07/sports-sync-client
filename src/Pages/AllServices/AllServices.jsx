@@ -3,6 +3,7 @@ import AllServicesCard from "../../components/AllServicesCard/AllServicesCard";
 
 import useServices from "../../hooks/useServices";
 import { Dna } from "react-loader-spinner";
+import { Helmet } from "react-helmet-async";
 
 const AllServices = () => {
   const { data, isLoading } = useServices();
@@ -40,6 +41,9 @@ const AllServices = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>SportsSync | All Services</title>
+      </Helmet>
       <h2 className="text-center text-2xl font-bold mt-32 mb-6">
         All of our Services
       </h2>

@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Dna } from "react-loader-spinner";
+import { Helmet } from "react-helmet-async";
 
 const UpdateUserService = () => {
   const { user } = useContext(AuthContext);
@@ -78,6 +79,9 @@ const UpdateUserService = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>SportsSync | Update Service</title>
+      </Helmet>
       <h2 className="text-center text-2xl font-bold my-6">Update Service</h2>
       <div className="p-5 bg-cyan-600 rounded-lg mx-5">
         <form onSubmit={handleUpdate}>

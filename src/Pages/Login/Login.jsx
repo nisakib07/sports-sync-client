@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { toast } from "react-toastify";
 import { FcGoogle } from "react-icons/fc";
+import { Helmet } from "react-helmet-async";
 
 const Login = () => {
   const { userSignIn, googleSignIn } = useContext(AuthContext);
@@ -38,6 +39,9 @@ const Login = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>SportsSync | Login</title>
+      </Helmet>
       <div className="min-h-screen max-w-2xl mx-auto mt-10">
         <div className="flex-col">
           <div className="w-full rounded-2xl shadow-2xl bg-base-100">

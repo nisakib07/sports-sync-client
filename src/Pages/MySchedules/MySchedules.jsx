@@ -5,6 +5,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import MyBookingsRow from "../../components/MyBookingsRow/MyBookingsRow";
 import MyPendingWorks from "../../components/MyPendingWorks/MyPendingWorks";
 import { Dna } from "react-loader-spinner";
+import { Helmet } from "react-helmet-async";
 
 const MySchedules = () => {
   const { user } = useContext(AuthContext);
@@ -34,6 +35,9 @@ const MySchedules = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>SportsSync | My Schedules</title>
+      </Helmet>
       <div>
         <div>
           <h2 className="text-center text-2xl font-bold mt-32 mb-6">

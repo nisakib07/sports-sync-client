@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
+import { Helmet } from "react-helmet-async";
 
 const AddServices = () => {
   const { user } = useContext(AuthContext);
@@ -47,6 +48,9 @@ const AddServices = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>SportsSync | Add Services</title>
+      </Helmet>
       <h2 className="text-center text-2xl font-bold mt-32 mb-6">
         Add Services
       </h2>

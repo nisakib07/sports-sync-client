@@ -3,6 +3,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { createUser, userProfileUpdate } = useContext(AuthContext);
@@ -40,6 +41,9 @@ const Register = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>SportsSync | Register</title>
+      </Helmet>
       <div className="min-h-screen max-w-2xl mx-auto mt-10">
         <div className="flex-col">
           <div className="w-full rounded-2xl shadow-2xl bg-base-100">

@@ -27,16 +27,20 @@ const UserSingleServiceCard = ({ singleData, refetch }) => {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     }).then(() => {
-      axios.delete(`http://localhost:5000/services/${id}`).then((res) => {
-        if (res.data.deletedCount > 0) {
-          Swal.fire({
-            title: "Deleted!",
-            text: `${serviceName} has been deleted.`,
-            icon: "success",
-          });
-        }
-        refetch();
-      });
+      axios
+        .delete(`http://localhost:5000/services/${id}`, {
+          withCredentials: true,
+        })
+        .then((res) => {
+          if (res.data.deletedCount > 0) {
+            Swal.fire({
+              title: "Deleted!",
+              text: `${serviceName} has been deleted.`,
+              icon: "success",
+            });
+          }
+          refetch();
+        });
     });
   };
   return (

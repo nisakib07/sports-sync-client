@@ -14,7 +14,7 @@ const MyPendingWorks = () => {
   } = useQuery({
     queryKey: ["myPending"],
     queryFn: async () => {
-      const response = await fetch(url);
+      const response = await fetch(url, { credentials: "include" });
       const result = await response.json();
       return result;
     },

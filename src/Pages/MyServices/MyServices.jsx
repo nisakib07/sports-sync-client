@@ -11,7 +11,8 @@ const MyServices = () => {
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["userService"],
-    queryFn: () => fetch(url).then((res) => res.json()),
+    queryFn: () =>
+      fetch(url, { credentials: "include" }).then((res) => res.json()),
   });
   if (isLoading)
     return (

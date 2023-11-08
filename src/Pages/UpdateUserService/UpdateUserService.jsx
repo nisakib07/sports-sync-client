@@ -15,7 +15,9 @@ const UpdateUserService = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["updateProduct"],
     queryFn: () =>
-      fetch(`http://localhost:5000/services/${id}`).then((res) => res.json()),
+      fetch(`http://localhost:5000/services/${id}`, {
+        credentials: "include",
+      }).then((res) => res.json()),
   });
 
   if (isLoading)
@@ -63,7 +65,9 @@ const UpdateUserService = () => {
     };
 
     axios
-      .put(`http://localhost:5000/services/${_id}`, updatedService)
+      .put(`http://localhost:5000/services/${_id}`, updatedService, {
+        withCredentials: true,
+      })
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           toast.success("Service Updated Successfully");

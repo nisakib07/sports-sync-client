@@ -6,7 +6,6 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Dna } from "react-loader-spinner";
-import useOtherServices from "../../hooks/useOtherServices";
 
 const ServiceDetails = () => {
   const { id } = useParams();
@@ -17,16 +16,21 @@ const ServiceDetails = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["singleService"],
     queryFn: () =>
-      fetch(`http://localhost:5000/services/${id}`).then((res) => res.json()),
+      fetch(`http://localhost:5000/services/${id}`, {
+        credentials: "include",
+      }).then((res) => res.json()),
   });
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/userService?email=${data?.serviceProviderEmail}`
+      `http://localhost:5000/userService?email=${
+        data && data?.serviceProviderEmail
+      }`,
+      { credentials: "include" }
     )
       .then((res) => res.json())
       .then((data) => setAllServices(data));
-  }, [data?.serviceProviderEmail]);
+  }, [data?.serviceProviderEmail, data]);
 
   useEffect(() => {
     const matched = allServices.filter(
@@ -76,11 +80,15 @@ const ServiceDetails = () => {
       status: "Pending",
     };
 
-    axios.post("http://localhost:5000/bookings", booking).then((res) => {
-      if (res.data.insertedId) {
-        toast.success("Booking Added Successfully");
-      }
-    });
+    axios
+      .post("http://localhost:5000/bookings", booking, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        if (res.data.insertedId) {
+          toast.success("Booking Added Successfully");
+        }
+      });
   };
 
   return (
@@ -254,7 +262,7 @@ const ServiceDetails = () => {
 
       <div>
         <div>
-          {otherServices.length === 0 ? (
+          {otherServices && otherServices.length === 0 ? (
             ""
           ) : (
             <>

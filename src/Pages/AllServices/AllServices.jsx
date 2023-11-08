@@ -37,7 +37,6 @@ const AllServices = () => {
 
     setSearchedData(matched);
   };
-  console.log(data, searchedData);
 
   return (
     <div>

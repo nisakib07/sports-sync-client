@@ -6,6 +6,7 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { Dna } from "react-loader-spinner";
+import OtherServicesCard from "../../components/OtherServicesCard/OtherServicesCard";
 
 const ServiceDetails = () => {
   const { id } = useParams();
@@ -13,7 +14,7 @@ const ServiceDetails = () => {
 
   const [allServices, setAllServices] = useState([]);
   const [otherServices, setOtherServices] = useState([]);
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, refetch } = useQuery({
     queryKey: ["singleService"],
     queryFn: () =>
       fetch(`http://localhost:5000/services/${id}`, {
@@ -36,8 +37,9 @@ const ServiceDetails = () => {
     const matched = allServices.filter(
       (singleService) => singleService._id !== id
     );
+    refetch();
     setOtherServices(matched);
-  }, [allServices, id]);
+  }, [allServices, id, refetch]);
 
   if (isLoading)
     return (
@@ -269,7 +271,14 @@ const ServiceDetails = () => {
               <h2 className="text-center text-2xl font-bold my-10">
                 More from this provider
               </h2>
-              <p>{otherServices.length} more services</p>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+                {otherServices &&
+                  otherServices.map((singleService) => (
+                    <OtherServicesCard
+                      key={singleService._id}
+                      singleService={singleService}></OtherServicesCard>
+                  ))}
+              </div>
             </>
           )}
         </div>

@@ -3,26 +3,25 @@ const Footer = () => {
     <div>
       <footer className=" p-10 bg-cyan-300 shadow-lg  mt-12">
         <div className="flex flex-col md:flex-row max-w-screen-xl items-center gap-8 justify-between mx-auto">
-          <aside className="text-black">
+          <aside className="text-black flex flex-col items-center">
             <img
               className="w-[100px]"
               src="https://i.ibb.co/0M728j3/ss-high-resolution-logo-transparent.png"
               alt=""
             />
-            <p>
-              <span className="text-3xl">SportsSync</span>
-              <br />
-              Sync Up, Stay Fit, Play Together!
-            </p>
+            <div className="flex flex-col items-center mt-4">
+              <p className="text-3xl">SportsSync</p>
+              <p>Sync Up, Stay Fit, Play Together!</p>
+            </div>
           </aside>
-          <div>
+          <div className="flex flex-col items-center">
             <header className="footer-title">Address</header>
-            <div>
+            <div className="flex flex-col items-center md:items-start">
               <p>Main Office: Kaliakoir, Gazipur, Dhaka, Bangladesh</p>
               <p>Branch: Ashulia, Savar, Dhaka</p>
             </div>
           </div>
-          <nav>
+          <nav className="flex flex-col items-center">
             <header className="footer-title">Social</header>
             <div className="grid grid-flow-col gap-4">
               <a>
@@ -58,7 +57,7 @@ const Footer = () => {
             </div>
           </nav>
         </div>
-        <p className="text-center mt-5">
+        <p className="text-center mt-10">
           Copyright © 2023 - All right reserved SportsSync
         </p>
       </footer>

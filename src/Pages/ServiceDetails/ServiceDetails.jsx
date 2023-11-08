@@ -18,14 +18,14 @@ const ServiceDetails = () => {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["singleService"],
     queryFn: () =>
-      fetch(`http://localhost:5000/services/${id}`, {
+      fetch(`https://assignmentb8-11-server.vercel.app/services/${id}`, {
         credentials: "include",
       }).then((res) => res.json()),
   });
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/userService?email=${
+      `https://assignmentb8-11-server.vercel.app/userService?email=${
         data && data?.serviceProviderEmail
       }`,
       { credentials: "include" }
@@ -84,7 +84,7 @@ const ServiceDetails = () => {
     };
 
     axios
-      .post("http://localhost:5000/bookings", booking, {
+      .post("https://assignmentb8-11-server.vercel.app/bookings", booking, {
         withCredentials: true,
       })
       .then((res) => {
@@ -103,7 +103,7 @@ const ServiceDetails = () => {
         <h2 className="text-center text-2xl font-bold mb-6 mt-32">
           Service Provider
         </h2>
-        <div className="card lg:card-side bg-cyan-600 shadow-xl">
+        <div className="card lg:card-side bg-cyan-400 shadow-xl">
           <div className="flex rounded-xl">
             <figure>
               <img className="h-full w-[250px]" src={serviceProviderImage} />
@@ -124,7 +124,7 @@ const ServiceDetails = () => {
           Service Details
         </h2>
         <div>
-          <div className="card bg-cyan-600 shadow-xl">
+          <div className="card bg-cyan-400 shadow-xl">
             <figure>
               <img className="w-full h-[600px]" src={serviceImage} />
             </figure>
@@ -158,7 +158,7 @@ const ServiceDetails = () => {
                 onClick={() =>
                   document.getElementById("my_modal_5").showModal()
                 }
-                className="flex items-center gap-2 bg-cyan-400 p-2 rounded-lg">
+                className="flex items-center gap-2 bg-cyan-700 text-white p-2 rounded-lg">
                 Book Now
                 <span>
                   <BsArrowRight></BsArrowRight>
@@ -168,7 +168,7 @@ const ServiceDetails = () => {
             <dialog
               id="my_modal_5"
               className="modal modal-bottom sm:modal-middle">
-              <div className="modal-box bg-cyan-600">
+              <div className="modal-box bg-cyan-400">
                 <form onSubmit={handleAddToBooking}>
                   <div className="form-control">
                     <label className="label">
@@ -249,7 +249,7 @@ const ServiceDetails = () => {
                     />
                   </div>
                   <button
-                    className="btn mt-6 bg-cyan-400 border-0"
+                    className="btn mt-6 bg-cyan-700 text-white hover:bg-cyan-600 border-0"
                     type="submit">
                     Purchase
                   </button>

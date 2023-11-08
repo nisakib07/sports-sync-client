@@ -30,12 +30,14 @@ const AddServices = () => {
       serviceArea: serviceArea,
     };
 
-    axios.post("http://localhost:5000/services", newService).then((res) => {
-      if (res.data.insertedId) {
-        form.reset();
-        toast.success("Service Added Successfully");
-      }
-    });
+    axios
+      .post("https://assignmentb8-11-server.vercel.app/services", newService)
+      .then((res) => {
+        if (res.data.insertedId) {
+          form.reset();
+          toast.success("Service Added Successfully");
+        }
+      });
 
     console.log(
       serviceImage,
@@ -54,7 +56,7 @@ const AddServices = () => {
       <h2 className="text-center text-2xl font-bold mt-32 mb-6">
         Add Services
       </h2>
-      <div className="p-5 bg-cyan-600 rounded-lg mx-5">
+      <div className="p-5 bg-cyan-400 rounded-lg mx-5">
         <form onSubmit={handleAddService}>
           {/* Service name and Image */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">

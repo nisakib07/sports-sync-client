@@ -9,7 +9,7 @@ import { Helmet } from "react-helmet-async";
 
 const MySchedules = () => {
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/bookings?email=${user?.email}`;
+  const url = `https://assignmentb8-11-server.vercel.app/bookings?email=${user?.email}`;
   const { data: myBookings, isLoading } = useQuery({
     queryKey: ["userBooking"],
     queryFn: async () => {

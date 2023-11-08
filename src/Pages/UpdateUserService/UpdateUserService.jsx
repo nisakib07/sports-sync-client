@@ -16,7 +16,7 @@ const UpdateUserService = () => {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["updateProduct"],
     queryFn: () =>
-      fetch(`http://localhost:5000/services/${id}`, {
+      fetch(`https://assignmentb8-11-server.vercel.app/services/${id}`, {
         credentials: "include",
       }).then((res) => res.json()),
   });
@@ -66,9 +66,13 @@ const UpdateUserService = () => {
     };
 
     axios
-      .put(`http://localhost:5000/services/${_id}`, updatedService, {
-        withCredentials: true,
-      })
+      .put(
+        `https://assignmentb8-11-server.vercel.app/services/${_id}`,
+        updatedService,
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           toast.success("Service Updated Successfully");
@@ -83,7 +87,7 @@ const UpdateUserService = () => {
         <title>SportsSync | Update Service</title>
       </Helmet>
       <h2 className="text-center text-2xl font-bold my-6">Update Service</h2>
-      <div className="p-5 bg-cyan-600 rounded-lg mx-5">
+      <div className="p-5 bg-cyan-400 rounded-lg mx-5">
         <form onSubmit={handleUpdate}>
           {/* Service name and Image */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
@@ -191,7 +195,7 @@ const UpdateUserService = () => {
           </div>
           <div className="flex justify-center">
             <button
-              className="btn mt-6 bg-cyan-400 border-0 px-14"
+              className="btn mt-6 bg-cyan-700 text-white hover:bg-cyan-600 border-0 px-14"
               type="submit">
               Update
             </button>

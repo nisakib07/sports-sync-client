@@ -6,7 +6,9 @@ const Features = () => {
   const { data, isLoading } = useQuery({
     queryKey: ["features"],
     queryFn: async () => {
-      const response = await fetch("http://localhost:5000/features");
+      const response = await fetch(
+        "https://assignmentb8-11-server.vercel.app/features"
+      );
       const data = await response.json();
       return data;
     },

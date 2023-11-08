@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet-async";
 const MyServices = () => {
   const { user } = useContext(AuthContext);
 
-  const url = `http://localhost:5000/userService?email=${user?.email}`;
+  const url = `https://assignmentb8-11-server.vercel.app/userService?email=${user?.email}`;
 
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["userService"],

@@ -70,7 +70,7 @@ const Navbar = () => {
             src="https://i.ibb.co/0M728j3/ss-high-resolution-logo-transparent.png"
             alt=""
           />
-          <h1 className="text-4xl font-bold">SportsSync</h1>
+          <h1 className="text-2xl md:text-4xl font-bold">SportsSync</h1>
         </div>
       </div>
       <div className="navbar-center hidden lg:flex">

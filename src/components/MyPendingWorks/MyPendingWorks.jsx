@@ -6,7 +6,7 @@ import { Dna } from "react-loader-spinner";
 
 const MyPendingWorks = () => {
   const { user } = useContext(AuthContext);
-  const url = `http://localhost:5000/pendingWorks?email=${user?.email}`;
+  const url = `https://assignmentb8-11-server.vercel.app/pendingWorks?email=${user?.email}`;
   const {
     data: myPending,
     isLoading,

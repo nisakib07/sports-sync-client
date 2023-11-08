@@ -4,7 +4,9 @@ const useServices = () => {
   const { data, isLoading, refetch } = useQuery({
     queryKey: ["services"],
     queryFn: () =>
-      fetch("http://localhost:5000/services").then((res) => res.json()),
+      fetch("https://assignmentb8-11-server.vercel.app/services").then((res) =>
+        res.json()
+      ),
   });
   return { data, isLoading, refetch };
 };

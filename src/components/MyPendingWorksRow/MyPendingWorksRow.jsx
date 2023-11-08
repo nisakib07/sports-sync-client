@@ -30,9 +30,13 @@ const MyPendingWorksRow = ({ singlePending, refetch }) => {
       status: updatedStatus,
     };
     axios
-      .put(`http://localhost:5000/bookings/${_id}`, updatedBooking, {
-        withCredentials: true,
-      })
+      .put(
+        `https://assignmentb8-11-server.vercel.app/bookings/${_id}`,
+        updatedBooking,
+        {
+          withCredentials: true,
+        }
+      )
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           toast.success("Status Updated Successfully");
@@ -50,7 +54,7 @@ const MyPendingWorksRow = ({ singlePending, refetch }) => {
         <select
           onChange={handleChangeStatus}
           value={newStatus}
-          className="bg-cyan-600 p-2 rounded-lg"
+          className="bg-cyan-400 p-2 rounded-lg"
           name=""
           id="">
           <option value="Pending">Pending</option>

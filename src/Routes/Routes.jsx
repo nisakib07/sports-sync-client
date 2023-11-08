@@ -66,7 +66,9 @@ const Routes = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/services/${params.id}`),
+          fetch(
+            `https://assignmentb8-11-server.vercel.app/services/${params.id}`
+          ),
       },
       {
         path: "/mySchedules",

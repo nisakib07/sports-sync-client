@@ -33,7 +33,9 @@ const Services = () => {
       </div>
       <div className="flex justify-center mt-7 pb-7">
         <Link to="/allServices">
-          <button className="bg-cyan-400 p-2 rounded-lg">Show All</button>
+          <button className="bg-cyan-700 text-white p-2 rounded-lg">
+            Show All
+          </button>
         </Link>
       </div>
     </div>

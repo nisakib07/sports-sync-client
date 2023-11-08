@@ -5,7 +5,7 @@ import Footer from "../components/Footer/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="bg-gradient-to-r min-h-screen  bg-cyan-700">
+    <div className="bg-gradient-to-r min-h-screen  bg-cyan-200">
       <div>
         <div className="max-w-screen-xl mx-auto">
           <Navbar></Navbar>

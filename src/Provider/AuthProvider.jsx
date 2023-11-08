@@ -58,15 +58,19 @@ const AuthProvider = ({ children }) => {
       setLoading(false);
       if (currentUser) {
         axios
-          .post("http://localhost:5000/jwt", loggedInUser, {
+          .post("https://assignmentb8-11-server.vercel.app/jwt", loggedInUser, {
             withCredentials: true,
           })
           .then((res) => console.log("token response", res.data));
       } else {
         axios
-          .post("http://localhost:5000/logOut", loggedInUser, {
-            withCredentials: true,
-          })
+          .post(
+            "https://assignmentb8-11-server.vercel.app/logOut",
+            loggedInUser,
+            {
+              withCredentials: true,
+            }
+          )
           .then((res) => console.log(res.data));
       }
     });
@@ -79,6 +83,7 @@ const AuthProvider = ({ children }) => {
   const authInfo = {
     user,
     loading,
+    setLoading,
     createUser,
     userSignIn,
     userLogout,

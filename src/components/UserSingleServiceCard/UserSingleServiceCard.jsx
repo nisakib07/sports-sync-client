@@ -26,26 +26,28 @@ const UserSingleServiceCard = ({ singleData, refetch }) => {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
-    }).then(() => {
-      axios
-        .delete(`http://localhost:5000/services/${id}`, {
-          withCredentials: true,
-        })
-        .then((res) => {
-          if (res.data.deletedCount > 0) {
-            Swal.fire({
-              title: "Deleted!",
-              text: `${serviceName} has been deleted.`,
-              icon: "success",
-            });
-          }
-          refetch();
-        });
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`https://assignmentb8-11-server.vercel.app/services/${id}`, {
+            withCredentials: true,
+          })
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: `${serviceName} has been deleted.`,
+                icon: "success",
+              });
+            }
+            refetch();
+          });
+      }
     });
   };
   return (
     <div>
-      <div className="card bg-cyan-600 shadow-xl">
+      <div className="card bg-cyan-400 shadow-xl">
         <figure>
           <img className="w-full h-[450px]" src={serviceImage} />
         </figure>
@@ -76,7 +78,7 @@ const UserSingleServiceCard = ({ singleData, refetch }) => {
 
         <div className="flex p-5 justify-center gap-6">
           <Link to={`/updateUserService/${_id}`}>
-            <button className="flex items-center gap-2 bg-cyan-400 p-2 rounded-lg">
+            <button className="flex items-center gap-2 bg-cyan-700 text-white p-2 rounded-lg">
               Edit
               <span>
                 <GrUpdate></GrUpdate>

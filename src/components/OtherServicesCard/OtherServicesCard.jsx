@@ -5,7 +5,7 @@ const OtherServicesCard = ({ singleService }) => {
   const { serviceImage, serviceName, serviceDescription, _id } = singleService;
   return (
     <div>
-      <div className="card card-compact bg-cyan-600 shadow-xl">
+      <div className="card card-compact bg-cyan-400 shadow-xl">
         <figure>
           <img className="h-[300px]" src={serviceImage} alt="Shoes" />
         </figure>

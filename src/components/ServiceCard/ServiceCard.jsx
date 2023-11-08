@@ -14,7 +14,7 @@ const ServiceCard = ({ singleData }) => {
   } = singleData;
   return (
     <div>
-      <div className="card bg-cyan-600 shadow-xl">
+      <div className="card bg-cyan-400 shadow-xl">
         <figure>
           <img className="w-full h-[450px]" src={serviceImage} />
         </figure>
@@ -36,7 +36,7 @@ const ServiceCard = ({ singleData }) => {
 
         <div className="flex p-5 justify-end">
           <Link to={`/serviceDetails/${_id}`}>
-            <button className="flex items-center gap-2 bg-cyan-400 p-2 rounded-lg">
+            <button className="flex items-center gap-2 bg-cyan-700 text-white p-2 rounded-lg">
               View Detail{" "}
               <span>
                 <BsArrowRight></BsArrowRight>

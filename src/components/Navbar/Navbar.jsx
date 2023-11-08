@@ -1,20 +1,19 @@
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-// import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { user, userLogout } = useContext(AuthContext);
   const navLinks = (
     <>
-      <li>
+      <li className="text-lg font-semibold">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
+      <li className="text-lg font-semibold">
         <NavLink to="/allServices">Services</NavLink>
       </li>
       {user && (
-        <li tabIndex={0}>
+        <li tabIndex={0} className="text-lg font-semibold">
           <details>
             <summary>Dashboard</summary>
             <ul className="menu dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-40">
@@ -65,7 +64,14 @@ const Navbar = () => {
             {navLinks}
           </ul>
         </div>
-        <a className="text-xl">Jim</a>
+        <div className="flex items-center">
+          <img
+            className="w-[50px]"
+            src="https://i.ibb.co/0M728j3/ss-high-resolution-logo-transparent.png"
+            alt=""
+          />
+          <h1 className="text-4xl font-bold">SportsSync</h1>
+        </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navLinks}</ul>
@@ -99,7 +105,9 @@ const Navbar = () => {
             </div>
           ) : (
             <Link to="/login">
-              <button className="btn">Login</button>
+              <button className="btn bg-cyan-500 hover:bg-cyan-400 border-none">
+                Login
+              </button>
             </Link>
           )}
         </div>

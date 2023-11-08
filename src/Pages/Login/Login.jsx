@@ -41,7 +41,9 @@ const Login = () => {
       <div className="min-h-screen max-w-2xl mx-auto mt-10">
         <div className="flex-col">
           <div className="w-full rounded-2xl shadow-2xl bg-base-100">
-            <form className="card-body" onSubmit={handleLogin}>
+            <form
+              className="card-body bg-cyan-200 rounded-lg"
+              onSubmit={handleLogin}>
               <div className="form-control">
                 <label className="label">
                   <span className="text-lg">Email</span>

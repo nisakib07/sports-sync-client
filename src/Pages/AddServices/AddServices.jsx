@@ -159,7 +159,7 @@ const AddServices = () => {
           </div>
           <div className="flex justify-center">
             <button
-              className="btn mt-6 bg-cyan-400 border-0 px-14"
+              className="btn mt-6 bg-cyan-700 text-white border-0 px-14"
               type="submit">
               Add Service
             </button>

@@ -17,7 +17,7 @@ const AllServicesCard = ({ singleData }) => {
     <div>
       <div className="card bg-cyan-600 shadow-xl">
         <figure>
-          <img className="w-full h-[450px]" src={serviceImage} />
+          <img className="w-full h-[600px]" src={serviceImage} />
         </figure>
         <div className="p-5">
           <h2 className="text-2xl">{serviceName}</h2>

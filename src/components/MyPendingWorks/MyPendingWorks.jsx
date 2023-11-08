@@ -36,28 +36,34 @@ const MyPendingWorks = () => {
     );
   return (
     <div>
-      <div className="overflow-x-auto">
-        <table className="table">
-          {/* head */}
-          <thead>
-            <tr className="text-lg text-black text-center">
-              <th>Service Name</th>
-              <th>Customer Mail</th>
-              <th>Booking Date</th>
-              <th>Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {myPending &&
-              myPending.map((singlePending) => (
-                <MyPendingWorksRow
-                  key={singlePending._id}
-                  singlePending={singlePending}
-                  refetch={refetch}></MyPendingWorksRow>
-              ))}
-          </tbody>
-        </table>
-      </div>
+      {myPending.length === 0 ? (
+        <div className="flex justify-center text-xl font-semibold">
+          <p>Sorry, no one has booked any of your services yet!!!</p>
+        </div>
+      ) : (
+        <div className="overflow-x-auto">
+          <table className="table">
+            {/* head */}
+            <thead>
+              <tr className="text-lg text-black text-center">
+                <th>Service Name</th>
+                <th>Customer Mail</th>
+                <th>Booking Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {myPending &&
+                myPending.map((singlePending) => (
+                  <MyPendingWorksRow
+                    key={singlePending._id}
+                    singlePending={singlePending}
+                    refetch={refetch}></MyPendingWorksRow>
+                ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </div>
   );
 };

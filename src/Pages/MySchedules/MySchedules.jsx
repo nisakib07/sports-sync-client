@@ -41,27 +41,33 @@ const MySchedules = () => {
           </h2>
         </div>
         <div>
-          <div className="overflow-x-auto">
-            <table className="table">
-              {/* head */}
-              <thead>
-                <tr className="text-lg text-black text-center">
-                  <th>Service Name</th>
-                  <th>Provider Mail</th>
-                  <th>Booking Date</th>
-                  <th>Status</th>
-                </tr>
-              </thead>
-              <tbody>
-                {myBookings &&
-                  myBookings.map((singleData) => (
-                    <MyBookingsRow
-                      key={singleData._id}
-                      singleData={singleData}></MyBookingsRow>
-                  ))}
-              </tbody>
-            </table>
-          </div>
+          {myBookings.length === 0 ? (
+            <div className="flex justify-center text-xl font-semibold">
+              <p>Sorry, You have not booked any service yet!!!</p>
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="table">
+                {/* head */}
+                <thead>
+                  <tr className="text-lg text-black text-center">
+                    <th>Service Name</th>
+                    <th>Provider Mail</th>
+                    <th>Booking Date</th>
+                    <th>Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {myBookings &&
+                    myBookings.map((singleData) => (
+                      <MyBookingsRow
+                        key={singleData._id}
+                        singleData={singleData}></MyBookingsRow>
+                    ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
       </div>
 

@@ -1,8 +1,12 @@
-# React + Vite
+[SportsSync Live Site Link][https://assignmentb8-11.firebaseapp.com/](https://assignmentb8-11.firebaseapp.com/)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Features Of This Website
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- This is an offline service sharing website
+- User can login by registering email and password or by google
+- User can filter services by the name of the service
+- User can view the details of any service
+- User can add service as a service provider
+- User can update or delete his own added product
+- User can keep track of this bookings and pending work
+- User can update the status of their pending works

@@ -1,4 +1,5 @@
 import Banner from "../../components/Banner/Banner";
+import FaqSection from "../../components/FaqSection/FaqSection";
 import Features from "../../components/Features.jsx/Features";
 import Services from "../../components/Services/Services";
 
@@ -8,6 +9,7 @@ const Home = () => {
       <Banner></Banner>
       <Services></Services>
       <Features></Features>
+      <FaqSection></FaqSection>
     </div>
   );
 };

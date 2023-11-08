@@ -31,7 +31,9 @@ const ServiceDetails = () => {
       { credentials: "include" }
     )
       .then((res) => res.json())
-      .then((data) => setAllServices(data));
+      .then((data) => {
+        setAllServices(data);
+      });
   }, [data?.serviceProviderEmail, data]);
 
   useEffect(() => {

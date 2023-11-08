@@ -20,7 +20,7 @@ const ServiceCard = ({ singleData }) => {
         </figure>
         <div className="p-5">
           <h2 className="text-2xl">{serviceName}</h2>
-          <p className="min-h-[100px] ">{serviceDescription}</p>
+          <p className="min-h-[80px]">{serviceDescription.slice(0, 100)}</p>
         </div>
         <div className="flex justify-between items-center p-5">
           <div className="flex items-center gap-5">

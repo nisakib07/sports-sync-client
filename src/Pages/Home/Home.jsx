@@ -5,6 +5,8 @@ import Features from "../../components/Features.jsx/Features";
 import Location from "../../components/Location/Location";
 import Services from "../../components/Services/Services";
 
+import MarqueeSection from "../../components/MarqueeSection/MarqueeSection";
+
 const Home = () => {
   return (
     <div>
@@ -14,6 +16,7 @@ const Home = () => {
       <Banner></Banner>
       <Services></Services>
       <Features></Features>
+      <MarqueeSection></MarqueeSection>
       <FaqSection></FaqSection>
       <Location></Location>
     </div>

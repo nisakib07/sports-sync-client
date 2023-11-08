@@ -20,7 +20,6 @@ const MyPendingWorks = () => {
     },
   });
 
-  console.log(myPending);
   if (isLoading)
     return (
       <div className="flex justify-center">

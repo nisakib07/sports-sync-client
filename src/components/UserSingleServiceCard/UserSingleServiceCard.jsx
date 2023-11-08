@@ -77,7 +77,7 @@ const UserSingleServiceCard = ({ singleData, refetch }) => {
         <div className="flex p-5 justify-center gap-6">
           <Link to={`/updateUserService/${_id}`}>
             <button className="flex items-center gap-2 bg-cyan-400 p-2 rounded-lg">
-              Update
+              Edit
               <span>
                 <GrUpdate></GrUpdate>
               </span>

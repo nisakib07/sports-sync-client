@@ -12,7 +12,7 @@ const UpdateUserService = () => {
   const { id } = useParams();
   console.log(id);
 
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, refetch } = useQuery({
     queryKey: ["updateProduct"],
     queryFn: () =>
       fetch(`http://localhost:5000/services/${id}`, {
@@ -71,6 +71,7 @@ const UpdateUserService = () => {
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           toast.success("Service Updated Successfully");
+          refetch();
         }
       });
   };

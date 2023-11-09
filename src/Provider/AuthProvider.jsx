@@ -71,7 +71,7 @@ const AuthProvider = ({ children }) => {
               withCredentials: true,
             }
           )
-          .then();
+          .then((res) => console.log(res.data));
       }
     });
 

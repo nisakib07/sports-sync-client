@@ -34,9 +34,7 @@ const MyServices = () => {
       <Helmet>
         <title>SportsSync | My Services</title>
       </Helmet>
-      <h2 className="text-center text-2xl font-bold mt-32 mb-6">
-        My Services : {data.length}
-      </h2>
+      <h2 className="text-center text-2xl font-bold mt-32 mb-6">My Services</h2>
       <div>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
           {data.map((singleData) => (

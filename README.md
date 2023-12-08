@@ -1,4 +1,4 @@
-[SportsSync Live Site Link][https://assignmentb8-11.firebaseapp.com/](https://assignmentb8-11.firebaseapp.com/)
+SportsSync Live Site Link- [https://abcdenchanting-stew.surge.sh/](https://abcdenchanting-stew.surge.sh/)
 
 # Features Of This Website
 

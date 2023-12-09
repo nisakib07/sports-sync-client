@@ -1,4 +1,4 @@
-SportsSync Live Site Link- [https://abcdenchanting-stew.surge.sh/](https://abcdenchanting-stew.surge.sh/)
+SportsSync Live Site Link- [https://abcdenchanting-stew.surge.sh](https://abcdenchanting-stew.surge.sh)
 
 # Features Of This Website
 
@@ -10,3 +10,9 @@ SportsSync Live Site Link- [https://abcdenchanting-stew.surge.sh/](https://abcde
 - User can update or delete his own added product
 - User can keep track of this bookings and pending work
 - User can update the status of their pending works
+
+## Technologies Used
+
+<b>Front End</b> : HTML, CSS, Tailwind, React, JavaScript
+<br>
+<b>Back End</b> : Node.js, MongoDb
